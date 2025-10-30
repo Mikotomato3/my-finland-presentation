@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>フィンランド留学プレゼンテーション</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* フィンランド留学プレゼンテーション - 統合CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #7FB3D3;
+            --secondary-blue: #A8D0E8;
+            --light-blue: #E8F4F8;
+            --accent-blue: #5A9BD4;
+            --primary-white: #FFFFFF;
+            --soft-gray: #F8F9FA;
+            --medium-gray: #E9ECEF;
+            --dark-gray: #495057;
+            --text-dark: #2C3E50;
+            --text-light: #6C757D;
+            --success-green: #95C9A3;
+            --warning-orange: #F4A261;
+            --error-red: #E07A5F;
+            
+            --font-primary: 'Noto Sans JP', sans-serif;
+            --font-secondary: 'Inter', sans-serif;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-xxl: 4rem;
+            
+            --max-width: 1200px;
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 16px rgba(0,0,0,0.15);
+            
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--primary-white);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-secondary);
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        h4 { font-size: 1.25rem; }
+        h5 { font-size: 1.125rem; }
+        h6 { font-size: 1rem; }
+
+        p {
+            margin-bottom: var(--spacing-md);
+            color: var(--text-dark);
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        a:hover {
+            color: var(--primary-blue);
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* ナビゲーション */
+        .main-nav {
+            background: linear-gradient(135deg, var(--primary-white) 0%, var(--light-blue) 100%);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 70px;
+        }
+
+        .logo {
+            font-family: var(--font-secondary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--text-dark);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius);
+            transition: var(--transition-medium);
+            cursor: pointer;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background: var(--secondary-blue);
+            color: var(--primary-white);
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        /* メインコンテンツ */
+        .main-content {
+            margin-top: 70px;
+        }
+
+        .section {
+            min-height: 100vh;
+            padding: var(--spacing-xxl) 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xxl);
+            padding-bottom: var(--spacing-xl);
+            border-bottom: 2px solid var(--medium-gray);
+        }
+
+        .chapter-number {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+            background: linear-gradient(135deg, var(--accent-blue), var(--primary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--primary-blue));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            font-weight: 300;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        /* ヒーローセクション */
+        .hero-section {
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--primary-white) 50%, var(--soft-gray) 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, var(--secondary-blue) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, var(--primary-blue) 0%, transparent 50%);
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xxl);
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-blue), var(--primary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--spacing-md);
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-xl);
+            text-align: center;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+        }
+
+        .hero-image {
+            animation: fadeInRight 1s ease-out;
+            position: relative;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-slow);
+        }
+
+        .hero-img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+        }
+
+        /* ボタン */
+        .btn {
+            display: inline-block;
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: var(--transition-medium);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue), var(--primary-blue));
+            color: var(--primary-white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            text-decoration: none;
+            color: var(--primary-white);
+        }
+
+        .btn-secondary {
+            background: var(--primary-white);
+            color: var(--accent-blue);
+            border: 2px solid var(--accent-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-blue);
+            color: var(--primary-white);
+            transform: translateY(-3px);
+            text-decoration: none;
+        }
+
+        /* フィンランド基本情報 */
+        .finland-info {
+            background: linear-gradient(135deg, var(--light-blue), var(--secondary-blue));
+            padding: var(--spacing-xxl) 0;
+            margin: var(--spacing-xxl) 0;
+            border-radius: var(--border-radius-lg);
+        }
+
+        .finland-info .section-title {
+            color: var(--primary-white);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .info-card {
+            background: var(--primary-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-medium);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .info-card.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .info-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+            display: block;
+        }
+
+        .info-card h3 {
+            color: var(--accent-blue);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.5rem;
+        }
+
+        .info-highlight {
+            background: var(--light-blue);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            color: var(--accent-blue);
+            display: inline-block;
+            margin: var(--spacing-xs) 0;
+        }
+        
+        /* 公式サイトリンク */
+        .official-links {
+            margin-top: var(--spacing-xl);
+        }
+        
+        .official-links h3 {
+            color: var(--primary-white);
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+        }
+        
+        .official-link {
+            display: block;
+            background: var(--primary-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            text-decoration: none !important;
+            color: var(--text-dark) !important;
+            transition: var(--transition-medium);
+        }
+        
+        .official-link:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            text-decoration: none !important;
+        }
+        
+        .official-link-border-1 {
+            border-left: 4px solid var(--primary-blue);
+        }
+        
+        .official-link-border-2 {
+            border-left: 4px solid var(--secondary-blue);
+        }
+        
+        .official-link-border-3 {
+            border-left: 4px solid var(--success-green);
+        }
+        
+        .official-link-icon {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1;
+        }
+        
+        .official-link h4 {
+            color: var(--accent-blue);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .official-link-desc {
+            font-size: 0.95rem;
+            color: #6C757D;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .official-link-subdesc {
+            font-size: 0.85rem;
+            color: #868e96;
+            line-height: 1.5;
+            display: block;
+            margin: 0;
+        }
+
+        /* 概要グリッド */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+
+        .overview-card {
+            background: var(--primary-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-medium);
+            transform: translateY(30px);
+            opacity: 0;
+        }
+
+        .overview-card.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+            display: block;
+        }
+
+        .overview-card h3 {
+            color: var(--accent-blue);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.5rem;
+        }
+
+        /* デュアル画像グリッド */
+        .dual-hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .hero-image-container {
+            position: relative;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .chapter-hero-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: var(--primary-white);
+            padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-lg);
+        }
+
+        .image-caption h3 {
+            color: var(--primary-white);
+            margin-bottom: var(--spacing-xs);
+            font-size: 1.25rem;
+        }
+
+        .image-caption p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* コンテンツブロック */
+        .content-block {
+            margin-bottom: var(--spacing-xxl);
+            padding: var(--spacing-xl);
+            background: var(--primary-white);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .content-block.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .content-block h2 {
+            color: var(--accent-blue);
+            border-bottom: 2px solid var(--secondary-blue);
+            padding-bottom: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .lead-text {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-xl);
+            font-weight: 400;
+        }
+
+        /* 統計表示 */
+        .highlight-stats,
+        .diversity-stats,
+        .sauna-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: var(--spacing-xl) 0;
+            flex-wrap: wrap;
+            gap: var(--spacing-lg);
+        }
+
+        .stat-item,
+        .stat-circle,
+        .sauna-stat {
+            text-align: center;
+            background: var(--light-blue);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            min-width: 150px;
+            transition: var(--transition-medium);
+        }
+
+        .stat-circle {
+            border: 4px solid var(--secondary-blue);
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--primary-white);
+        }
+
+        .stat-number,
+        .circle-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            display: block;
+        }
+
+        .stat-label,
+        .circle-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: var(--spacing-xs);
+        }
+
+        /* 機能グリッド */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-xl) 0;
+        }
+
+        .feature-item,
+        .right-item,
+        .sport-item,
+        .principle-card,
+        .insight-item,
+        .value-item {
+            background: var(--soft-gray);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition-medium);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .feature-item.animate-in,
+        .right-item.animate-in,
+        .sport-item.animate-in,
+        .principle-card.animate-in,
+        .insight-item.animate-in,
+        .value-item.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .feature-item:hover,
+        .right-item:hover,
+        .sport-item:hover,
+        .insight-item:hover,
+        .value-item:hover {
+            transform: translateY(-5px);
+            background: var(--light-blue);
+        }
+
+        .feature-icon,
+        .right-icon,
+        .sport-icon,
+        .principle-icon,
+        .insight-icon,
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            display: block;
+        }
+
+        .feature-item h4,
+        .right-item h4,
+        .sport-item h4,
+        .principle-card h4,
+        .insight-item h5,
+        .value-item h4 {
+            color: var(--accent-blue);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* 友達ギャラリー */
+        .friends-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-xl) 0;
+        }
+
+        .friend-card {
+            background: var(--primary-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: var(--transition-medium);
+            border-top: 4px solid var(--secondary-blue);
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        .friend-card.animate-in {
+            opacity: 1;
+            transform: scale(1);
+            animation: scaleIn 0.6s ease-out;
+        }
+
+        .friend-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: var(--shadow-md);
+            border-top-color: var(--accent-blue);
+        }
+
+        .friend-flag {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+            display: block;
+        }
+
+        .friend-card h4 {
+            color: var(--accent-blue);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .friend-major {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .friend-desc {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* プロセスステップ */
+        .sauna-process {
+            margin: var(--spacing-xl) 0;
+        }
+
+        .process-step {
+            display: flex;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            background: var(--soft-gray);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            transition: var(--transition-medium);
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+
+        .process-step.animate-in {
+            opacity: 1;
+            transform: translateX(0);
+            animation: slideInLeft 0.6s ease-out;
+        }
+
+        .process-step:hover {
+            background: var(--light-blue);
+            transform: translateX(10px);
+        }
+
+        .step-number {
+            background: var(--accent-blue);
+            color: var(--primary-white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .step-content h4 {
+            color: var(--accent-blue);
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .step-content p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* リフレクションボックス */
+        .reflection-box {
+            background: var(--light-blue);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-lg);
+            border-left: 5px solid var(--accent-blue);
+            margin: var(--spacing-xl) 0;
+            position: relative;
+        }
+
+        .quote-mark {
+            font-size: 4rem;
+            color: var(--secondary-blue);
+            position: absolute;
+            top: -10px;
+            left: var(--spacing-lg);
+            line-height: 1;
+            opacity: 0.5;
+        }
+
+        .reflection-text {
+            font-size: 1.125rem;
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.7;
+        }
+
+        .reflection-author {
+            text-align: right;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        /* 外部リンク */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .link-card {
+            background: var(--primary-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition-medium);
+            text-decoration: none;
+            color: var(--text-dark);
+            box-shadow: var(--shadow-sm);
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        .link-card.animate-in {
+            opacity: 1;
+            transform: scale(1);
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        .link-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        .link-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            display: block;
+        }
+
+        .link-card h3 {
+            color: var(--accent-blue);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* 最終セクション */
+        .final-thoughts {
+            background: linear-gradient(135deg, var(--light-blue), var(--secondary-blue));
+            padding: var(--spacing-xxl);
+            border-radius: var(--border-radius-lg);
+            margin: var(--spacing-xxl) 0;
+            text-align: center;
+        }
+
+        .final-thoughts h2 {
+            color: var(--primary-white);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .summary-card {
+            background: var(--primary-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition-medium);
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        .summary-card.animate-in {
+            opacity: 1;
+            transform: scale(1);
+            animation: scaleIn 0.6s ease-out;
+        }
+
+        .summary-card:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-md);
+        }
+
+        .summary-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            display: block;
+        }
+
+        .summary-card h4 {
+            color: var(--accent-blue);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .summary-card p {
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .final-message {
+            background: var(--primary-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            text-align: left;
+        }
+
+        .final-message h4 {
+            color: var(--accent-blue);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .final-message p {
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        /* フッター */
+        .main-footer {
+            background: linear-gradient(135deg, var(--text-dark), var(--dark-gray));
+            color: var(--primary-white);
+            padding: var(--spacing-xxl) 0 var(--spacing-lg);
+            margin-top: var(--spacing-xxl);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            color: var(--secondary-blue);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .footer-section a {
+            color: var(--primary-white);
+            opacity: 0.8;
+            transition: var(--transition-fast);
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            color: var(--secondary-blue);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--dark-gray);
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* プログレスバー */
+        .progress-bar {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--primary-blue));
+            z-index: 999;
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 0.1s ease;
+        }
+
+        /* アニメーション */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from { 
+                opacity: 0; 
+                transform: translateX(-50px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0); 
+            }
+        }
+
+        @keyframes fadeInRight {
+            from { 
+                opacity: 0; 
+                transform: translateX(50px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0); 
+            }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        @keyframes slideInLeft {
+            from { 
+                opacity: 0; 
+                transform: translateX(-30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0); 
+            }
+        }
+
+        @keyframes scaleIn {
+            from { 
+                opacity: 0; 
+                transform: scale(0.9); 
+            }
+            to { 
+                opacity: 1; 
+                transform: scale(1); 
+            }
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .dual-hero-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --spacing-xs: 0.25rem;
+                --spacing-sm: 0.75rem;
+                --spacing-md: 1rem;
+                --spacing-lg: 1.5rem;
+                --spacing-xl: 2rem;
+                --spacing-xxl: 2.5rem;
+            }
+            
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary-white);
+                box-shadow: var(--shadow-md);
+                padding: var(--spacing-md);
+                display: none;
+            }
+            
+            .nav-menu.mobile-open {
+                display: flex;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: var(--accent-blue);
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .highlight-stats,
+            .diversity-stats,
+            .sauna-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .process-step {
+                flex-direction: column;
+                gap: var(--spacing-md);
+                text-align: center;
+            }
+            
+            .final-thoughts {
+                padding: var(--spacing-xl);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .overview-grid,
+            .feature-grid,
+            .friends-gallery,
+            .summary-grid,
+            .links-grid,
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* デスクトップでモバイルメニュートグルを隠す */
+        .mobile-menu-toggle {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- プログレスバー -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- ナビゲーション -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">🇫🇮 Finland Experience</div>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" onclick="scrollToSection('home')">ホーム</a></li>
+                <li><a href="#finland-info" onclick="scrollToSection('finland-info')">基本情報</a></li>
+                <li><a href="#education" onclick="scrollToSection('education')">教育</a></li>
+                <li><a href="#nature" onclick="scrollToSection('nature')">自然</a></li>
+                <li><a href="#culture" onclick="scrollToSection('culture')">文化交流</a></li>
+                <li><a href="#lifestyle" onclick="scrollToSection('lifestyle')">日常生活</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <!-- ホームセクション -->
+        <section id="home" class="section hero-section visible">
+            <div class="container">
+                <div class="hero-background">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1 class="hero-title">フィンランド留学</h1>
+                            <h2 class="section-subtitle">Nordic Journey: Life & Learning in Finland</h2>
+                            <p class="hero-description">
+                                北欧フィンランドでの留学生活を通じて発見した<br>
+                                教育、自然、文化、そして人との出会いについて
+                            </p>
+                            <div class="hero-buttons">
+                                <a href="#finland-info" onclick="scrollToSection('finland-info')" class="btn btn-primary">体験を見る</a>
+                                <a href="#overview" onclick="scrollToSection('overview')" class="btn btn-secondary">概要を読む</a>
+                            </div>
+                        </div>
+                        <div class="hero-image">
+                            <img src="https://page.gensparksite.com/v1/base64_upload/94fed9b5412f8f2816ce6b94b08b8ec2" alt="フィンランドの雪景色" class="hero-img">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 概要セクション -->
+                <div id="overview" style="padding-top: var(--spacing-xxl);">
+                    <h2 class="section-title">留学概要</h2>
+                    <div class="overview-grid">
+                        <div class="overview-card">
+                            <div class="card-icon">🏛️</div>
+                            <h3>教育システム</h3>
+                            <p>世界最高水準の教育環境と最新の図書館システムを体験</p>
+                        </div>
+                        <div class="overview-card">
+                            <div class="card-icon">🌲</div>
+                            <h3>自然体験</h3>
+                            <p>きのこ狩りやウィンタースポーツを通じた北欧の自然との共生</p>
+                        </div>
+                        <div class="overview-card">
+                            <div class="card-icon">🤝</div>
+                            <h3>国際交流</h3>
+                            <p>多様な国籍の学生たちとの深い友情とロッジでの共同生活</p>
+                        </div>
+                        <div class="overview-card">
+                            <div class="card-icon">🏠</div>
+                            <h3>日常生活</h3>
+                            <p>サウナ文化と寮生活を通じて感じたフィンランドらしさ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- フィンランド基本情報セクション -->
+        <section id="finland-info" class="section">
+            <div class="container">
+                <div class="finland-info">
+                    <h2 class="section-title">フィンランド基本情報</h2>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <div class="info-icon">👥</div>
+                            <h3>人口</h3>
+                            <p><span class="info-highlight">約555万人</span></p>
+                            <p>日本の<strong>静岡県</strong>とほぼ同じ人口規模</p>
+                            <p>人口密度は日本の約1/20と非常に広々とした環境</p>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">🌡️</div>
+                            <h3>気候</h3>
+                            <p><span class="info-highlight">冷帯湿潤気候</span></p>
+                            <p><strong>夏:</strong> 15-25°C（白夜現象あり）</p>
+                            <p><strong>冬:</strong> -5 to -25°C（極夜現象あり）</p>
+                            <p>札幌よりもさらに寒く、四季がはっきりしている</p>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">🍲</div>
+                            <h3>食べ物</h3>
+                            <p><span class="info-highlight">北欧料理</span></p>
+                            <p><strong>魚介類:</strong> サーモン、ニシン、ザリガニ</p>
+                            <p><strong>ベリー:</strong> ブルーベリー、リンゴンベリー</p>
+                            <p><strong>乳製品:</strong> チーズ、ヨーグルト</p>
+                            <p><strong>パン:</strong> ライ麦パン（ルイスライパ）</p>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">💰</div>
+                            <h3>通貨</h3>
+                            <p><span class="info-highlight">ユーロ（EUR）</span></p>
+                            <p>2002年からEUに加盟しユーロを採用</p>
+                            <p><strong>為替レート:</strong> 1EUR ≈ 160円前後</p>
+                            <p>キャッシュレス社会が進んでおり、カード決済が主流</p>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">🗣️</div>
+                            <h3>言語</h3>
+                            <p><span class="info-highlight">フィンランド語・スウェーデン語</span></p>
+                            <p><strong>公用語:</strong> フィンランド語（93%）、スウェーデン語（5.6%）</p>
+                            <p><strong>英語普及率:</strong> 約70%（特に若者層）</p>
+                            <p>大学では英語での授業が豊富に提供されている</p>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">🌲</div>
+                            <h3>国土</h3>
+                            <p><span class="info-highlight">約33.8万km²</span></p>
+                            <p>日本の約90%の面積（九州を除いたくらい）</p>
+                            <p><strong>森林率:</strong> 73.1%（世界最高水準）</p>
+                            <p><strong>湖の数:</strong> 約18万8,000個</p>
+                            <p>「千の湖の国」と呼ばれる美しい自然環境</p>
+                        </div>
+                    </div>
+                    
+                    <!-- フィンランド公式サイト -->
+                    <div class="official-links">
+                        <h3>🔗 フィンランド公式サイト</h3>
+                        <div class="links-grid">
+                            <a href="https://finland.fi/" target="_blank" class="official-link official-link-border-1">
+                                <div class="official-link-icon">🇫🇮</div>
+                                <h4>thisisFINLAND</h4>
+                                <span class="official-link-desc">フィンランド政府公式情報サイト</span>
+                                <span class="official-link-subdesc">政治・社会・文化の最新情報</span>
+                            </a>
+                            <a href="https://www.visitfinland.com/ja/" target="_blank" class="official-link official-link-border-2">
+                                <div class="official-link-icon">✈️</div>
+                                <h4>Visit Finland</h4>
+                                <span class="official-link-desc">フィンランド政府観光局公式サイト</span>
+                                <span class="official-link-subdesc">観光・旅行情報の総合ガイド</span>
+                            </a>
+                            <a href="https://finlandabroad.fi/web/jpn/ja-frontpage" target="_blank" class="official-link official-link-border-3">
+                                <div class="official-link-icon">🏛️</div>
+                                <h4>駐日フィンランド大使館</h4>
+                                <span class="official-link-desc">在日フィンランド外務省公式サイト</span>
+                                <span class="official-link-subdesc">ビザ・入国・外交情報</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 教育システムセクション -->
+        <section id="education" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="chapter-number">Chapter 01</div>
+                    <h1 class="section-title">教育システム</h1>
+                    <p class="section-subtitle">世界最高水準の学習環境</p>
+                </div>
+
+                <!-- メイン画像 -->
+                <div class="hero-image-container" style="margin-bottom: var(--spacing-xl);">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/e4aacf82262dd918e72380a973b038ef" alt="フィンランドの最新図書館" class="chapter-hero-img">
+                    <div class="image-caption">
+                        <h3>最新の図書館施設</h3>
+                        <p>建築も有名なフィンランドの開放的な図書館</p>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>🏛️ フィンランドの教育</h2>
+                    <p class="lead-text">
+                        フィンランドの教育システムは「すべての子どもに平等な教育機会を」という理念のもと、
+                        世界でもトップクラスの革新的で効果的な教育アプローチを確立しています。
+                    </p>
+                    
+                    <div class="highlight-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">1位</div>
+                            <div class="stat-label">PISA学習到達度</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">大学進学率</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">0€</div>
+                            <div class="stat-label">大学授業料</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>📚 図書館文化の革新</h2>
+                    <p>
+                        フィンランドの図書館は単なる本の保管場所ではありません。
+                        コミュニティの学習拠点として、最新テクノロジーと快適な環境を提供しています。
+                    </p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">💻</div>
+                            <h4>デジタル学習環境</h4>
+                            <p>最新のタブレット、VR機器、3Dプリンターなどを自由に利用可能</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🌱</div>
+                            <h4>自然との調和</h4>
+                            <p>室内に植物を配置し、自然光を最大限活用した癒しの空間</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">👥</div>
+                            <h4>コラボレーション空間</h4>
+                            <p>グループ学習や討議に最適化された柔軟なレイアウト</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🔍</div>
+                            <h4>個人学習支援</h4>
+                            <p>集中学習用の個室ブースと多様な学習スタイルに対応</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>💡 学んだこと・感じたこと</h2>
+                    <div class="reflection-box">
+                        <div class="quote-mark">"</div>
+                        <p class="reflection-text">
+                            フィンランドの教育システムで最も印象的だったのは、
+                            「競争よりも創造性」を重視する姿勢でした。
+                            学生たちは自分の興味関心をベースに学び、実践的な分野を研究していると感じました。
+                            これが高い学習効果につながっていると実感しました。
+                        </p>
+                        <div class="reflection-author">- 留学体験より</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 自然体験セクション -->
+        <section id="nature" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="chapter-number">Chapter 02</div>
+                    <h1 class="section-title">自然体験</h1>
+                    <p class="section-subtitle">北欧の豊かな自然との共生</p>
+                </div>
+
+                <!-- デュアル画像 -->
+                <div class="dual-hero-grid">
+                    <div class="hero-image-container">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/d1067da2bdfe4f494c21e6f1d6bd10a6" alt="きのこ狩りの収穫" class="chapter-hero-img">
+                        <div class="image-caption">
+                            <h3>🍄 きのこ狩りの収穫</h3>
+                            <p>自然の恵み</p>
+                        </div>
+                    </div>
+                    <div class="hero-image-container">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/a9ce47222e4f1c9f91046dfb5dd0afc9" alt="アイスホッケー観戦" class="chapter-hero-img">
+                        <div class="image-caption">
+                            <h3>🏒 ウィンタースポーツ</h3>
+                            <p>アイスホッケー観戦（留学生たちと）</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>🌲 エブリマンズライト（自然享受権）</h2>
+                    <p class="lead-text">
+                        フィンランドには「エブリマンズライト」という素晴らしい制度があります。
+                        これは誰でも自然の中を自由に歩き、ベリーやきのこを採取する権利を保障するものです。
+                    </p>
+                    
+                    <div class="feature-grid">
+                        <div class="right-item">
+                            <div class="right-icon">🚶‍♂️</div>
+                            <h4>自由な散策</h4>
+                            <p>私有地であっても、自然の中を自由に歩くことができます</p>
+                        </div>
+                        <div class="right-item">
+                            <div class="right-icon">🍄</div>
+                            <h4>採取の権利</h4>
+                            <p>野生のベリー、きのこ、薬草などを自由に採取できます</p>
+                        </div>
+                        <div class="right-item">
+                            <div class="right-icon">🏕️</div>
+                            <h4>キャンプの自由</h4>
+                            <p>適切な場所での一時的なキャンプが認められています</p>
+                        </div>
+                        <div class="right-item">
+                            <div class="right-icon">🌿</div>
+                            <h4>自然との調和</h4>
+                            <p>環境を損なわず、他者に迷惑をかけないことが前提です</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>🏒 ウィンタースポーツ文化</h2>
+                    <p>
+                        フィンランドの冬は長く厳しいですが、だからこそウィンタースポーツが発達し、
+                        人々の生活に深く根ざしています。特にアイスホッケーは国民的スポーツです。
+                    </p>
+                    
+                    <div class="feature-grid">
+                        <div class="sport-item">
+                            <div class="sport-icon">🏒</div>
+                            <h4>アイスホッケー</h4>
+                            <p>国技ともいえる大人気スポーツ。プロリーグの試合は常に満員です。</p>
+                        </div>
+                        <div class="sport-item">
+                            <div class="sport-icon">⛷️</div>
+                            <h4>クロスカントリースキー</h4>
+                            <p>フィンランド発祥とも言われる伝統的なスポーツ。国民の80%が経験者。</p>
+                        </div>
+                        <div class="sport-item">
+                            <div class="sport-icon">🥌</div>
+                            <h4>カーリング</h4>
+                            <p>近年人気が急上昇。戦略性の高いスポーツとして愛されています。</p>
+                        </div>
+                        <div class="sport-item">
+                            <div class="sport-icon">🏃‍♂️</div>
+                            <h4>アイスランニング</h4>
+                            <p>凍った湖や雪道でのランニング。特別な装備で安全に楽しめます。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>🎯 自然体験から学んだこと</h2>
+                    <div class="reflection-box">
+                        <div class="quote-mark">"</div>
+                        <p class="reflection-text">
+                            フィンランドの自然との関わり方から、
+                            「取り過ぎず、傷つけず、次の世代のために残す」という
+                            持続可能性の本当の意味を学びました。
+                        </p>
+                        <div class="reflection-author">- 自然体験を振り返って</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 文化交流セクション -->
+        <section id="culture" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="chapter-number">Chapter 03</div>
+                    <h1 class="section-title">文化交流</h1>
+                    <p class="section-subtitle">国際色豊かな仲間たちとの出会い</p>
+                </div>
+
+                <!-- デュアル画像 -->
+                <div class="dual-hero-grid">
+                    <div class="hero-image-container">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/8a10b9acec724727c6c20f88102d023d" alt="国際的な仲間たち" class="chapter-hero-img">
+                        <div class="image-caption">
+                            <h3>🌍 多様性豊かな仲間たち</h3>
+                            <p>世界各国からの留学生との冬のハイキング</p>
+                        </div>
+                    </div>
+                    <div class="hero-image-container">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/d9bcb73be86a3e47b6faf62bf6fa8522" alt="ロッジでの生活" class="chapter-hero-img">
+                        <div class="image-caption">
+                            <h3>🏠 ロッジでの共同生活</h3>
+                            <p>伝統的な木造ロッジでの温かい時間</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>🌍 国際的な学習環境</h2>
+                    <p class="lead-text">
+                        フィンランドの大学には世界中から留学生が集まります。
+                        私が出会った仲間たちは、それぞれ異なる文化的背景を持ちながらも、
+                        学びへの情熱という共通点で結ばれていました。
+                    </p>
+                    
+                    <div class="diversity-stats">
+                        <div class="stat-circle">
+                            <div class="circle-number">40+</div>
+                            <div class="circle-label">出身国数</div>
+                        </div>
+                        <div class="stat-circle">
+                            <div class="circle-number">20,000+</div>
+                            <div class="circle-label">留学生総数</div>
+                        </div>
+                        <div class="stat-circle">
+                            <div class="circle-number">85%</div>
+                            <div class="circle-label">英語授業率</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>🌟 文化交流から得られた学び</h2>
+                    <div class="reflection-box">
+                        <div class="quote-mark">"</div>
+                        <p class="reflection-text">
+                            異なる文化背景を持つ仲間たちとの交流を通じて、
+                            「多様性は強さである」ということを心から理解できました。
+                            一人一人の違いが、グループ全体の創造性と問題解決能力を
+                            飛躍的に高めることを実感しました。
+                        </p>
+                        <div class="reflection-author">- 文化交流を振り返って</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 日常生活セクション -->
+        <section id="lifestyle" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="chapter-number">Chapter 04</div>
+                    <h1 class="section-title">日常生活</h1>
+                    <p class="section-subtitle">サウナ文化と北欧の暮らし</p>
+                </div>
+
+                <!-- デュアル画像 -->
+                <div class="dual-hero-grid">
+                    <div class="hero-image-container">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/94fed9b5412f8f2816ce6b94b08b8ec2" alt="フィンランドの住環境" class="chapter-hero-img">
+                        <div class="image-caption">
+                            <h3>🏠 フィンランドの住環境</h3>
+                            <p>雪に包まれた美しい住宅街</p>
+                        </div>
+                    </div>
+                    <div class="hero-image-container">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/b402ddbd484a37a80cc12670a66afc48" alt="冬の日常" class="chapter-hero-img">
+                        <div class="image-caption">
+                            <h3>🚴‍♂️ 冬の日常</h3>
+                            <p>雪道でも続く自転車通学</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>🔥 サウナ文化の体験</h2>
+                    <p class="lead-text">
+                        フィンランドの文化を語る上で外せないのがサウナです。
+                        単なる入浴施設ではなく、心身をリフレッシュし、
+                        人々との絆を深める神聖な場所として位置づけられています。
+                    </p>
+                    
+                    <div class="sauna-stats">
+                        <div class="sauna-stat">
+                            <div class="stat-number">3.3M</div>
+                            <div class="stat-label">フィンランド国内のサウナ数</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>🏺 伝統的なサウナ体験</h2>
+                    <p>
+                        Kotiharjun Saunaという伝統的なサウナハウスで、
+                        本格的なフィンランドサウナを体験することができます。
+                        100年以上の歴史を持つこのサウナは、フィンランド文化の真髄を感じられる場所でとても人気です。
+                    </p>
+                    
+                    <div class="sauna-process">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>🚿 事前準備</h4>
+                                <p>まずはシャワーで体を清潔にし、アクセサリーを外します。水分補給も忘れずに。</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>🔥 サウナ室入室</h4>
+                                <p>80-100°Cの室内で10-15分間過ごします。薪ストーブの心地よい熱気に包まれます。</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>💧 ヴィヒタ（白樺の葉束）</h4>
+                                <p>白樺の葉束で体を軽く叩き、血行を促進します。香りもとても良いです。</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>❄️ クールダウン</h4>
+                                <p>湖に飛び込んだり、冷たいシャワー、外気浴で体を冷やします。寒いと暑いの対比が最高に気持ちいいです。</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h4>🔄 繰り返し</h4>
+                                <p>このサイクルを2-3回繰り返し、最後にゆっくりと体を休めます。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>🌟 日常生活から学んだ価値観</h2>
+                    <div class="reflection-box">
+                        <div class="quote-mark">"</div>
+                        <p class="reflection-text">
+                            フィンランドでの日常生活を通じて、
+                            「シンプルさの中にある豊かさ」を発見しました。
+                            物質的な豊かさよりも、時間的・精神的な余裕を重視する
+                            フィンランド人の価値観は、私の人生観を大きく変えました。
+                        </p>
+                        <div class="reflection-author">- 日常生活を振り返って</div>
+                    </div>
+                    
+                    <div class="feature-grid">
+                        <div class="value-item">
+                            <div class="value-icon">⚖️</div>
+                            <h4>ワークライフバランス</h4>
+                            <p>労働時間は短く、休暇は長く。効率的に働き、十分に休むことの大切さを学びました。</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">🌿</div>
+                            <h4>自然との共生</h4>
+                            <p>日常生活に自然を取り入れ、環境に配慮した選択をすることが当たり前の文化でした。</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">💭</div>
+                            <h4>内省の時間</h4>
+                            <p>サウナや自然の中で過ごす静かな時間が、自分自身と向き合う貴重な機会となりました。</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">🤝</div>
+                            <h4>コミュニティ重視</h4>
+                            <p>個人主義的でありながらも、コミュニティへの貢献を大切にする姿勢を学びました。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 最終セクション -->
+                <div class="final-thoughts">
+                    <h2>🎯 留学体験の総括</h2>
+                    <div class="summary-grid">
+                        <div class="summary-card">
+                            <div class="summary-icon">🎓</div>
+                            <h4>教育面での成長</h4>
+                            <p>世界最高水準の教育環境で、自主性と批判的思考力を身につけました。</p>
+                        </div>
+                        <div class="summary-card">
+                            <div class="summary-icon">🌍</div>
+                            <h4>国際的視野の獲得</h4>
+                            <p>40カ国からの留学生との交流で、グローバルマインドセットを習得しました。</p>
+                        </div>
+                        <div class="summary-card">
+                            <div class="summary-icon">🌲</div>
+                            <h4>持続可能性への意識</h4>
+                            <p>自然との共生を通じて、環境問題への深い理解と責任感を得ました。</p>
+                        </div>
+                        <div class="summary-card">
+                            <div class="summary-icon">💪</div>
+                            <h4>人間的な成長</h4>
+                            <p>困難を乗り越える力と、多様性を受け入れる柔軟性を身につけました。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="final-message">
+                        <h4>🚀 今後のキャリアへの活用</h4>
+                        <p>
+                            フィンランドでの留学体験で得た知識、スキル、価値観は、
+                            ITエンジニアとしてのキャリアにおいて大きな財産。
+                            特に、多様性を活かしたチームワーク、持続可能な技術開発、
+                            そしてグローバルな視点での問題解決に活かしていきたいと思います。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 外部リンクセクション -->
+                <div style="margin-top: var(--spacing-xxl);">
+                    <h2 class="section-title">関連リンク</h2>
+                    <div class="links-grid">
+                        <a href="https://www.jyu.fi/en" target="_blank" class="link-card">
+                            <div class="link-icon">🎓</div>
+                            <h3>ユヴァスキュラ大学</h3>
+                            <p>留学先の総合大学</p>
+                        </a>
+                        <a href="https://www.kansalliskirjasto.fi/en" target="_blank" class="link-card">
+                            <div class="link-icon">📚</div>
+                            <h3>フィンランド国立図書館</h3>
+                            <p>国の知の拠点</p>
+                        </a>
+                        <a href="https://kotiharjunsauna.fi/" target="_blank" class="link-card">
+                            <div class="link-icon">🔥</div>
+                            <h3>Kotiharjun Sauna</h3>
+                            <p>伝統的なサウナ文化</p>
+                        </a>
+                        <a href="https://www.suomenlinna.fi/en/" target="_blank" class="link-card">
+                            <div class="link-icon">🏰</div>
+                            <h3>スオメンリンナ島</h3>
+                            <p>世界遺産の要塞島</p>
+                        </a>
+                        <a href="https://santaclausvillage.info/" target="_blank" class="link-card">
+                            <div class="link-icon">🎅</div>
+                            <h3>ロヴァニエミ サンタ村</h3>
+                            <p>本物のサンタクロース村</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Finland Experience</h3>
+                    <p>フィンランド留学の体験を共有</p>
+                </div>
+                <div class="footer-section">
+                    <h4>プレゼンテーション構成</h4>
+                    <ul>
+                        <li>基本情報:フィンランドの基礎知識</li>
+                        <li>教育システム:世界最高水準の学習環境</li>
+                        <li>自然体験:きのこ狩りとウィンタースポーツ</li>
+                        <li>文化交流:国際色豊かな仲間たち</li>
+                        <li>日常生活:サウナ文化と北欧の暮らし</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Finland Experience. Created for Training Presentation.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // プログレスバー更新
+        function updateProgressBar() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.getElementById('progressBar').style.transform = `scaleX(${scrollPercent / 100})`;
+        }
+
+        // セクション表示制御
+        function updateVisibleSections() {
+            const sections = document.querySelectorAll('.section');
+            const windowHeight = window.innerHeight;
+            
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < windowHeight * 0.75) {
+                    section.classList.add('visible');
+                    
+                    // セクション内のアニメーション要素を表示
+                    const animateElements = section.querySelectorAll('.overview-card, .info-card, .feature-item, .right-item, .sport-item, .friend-card, .process-step, .summary-card, .link-card, .value-item');
+                    animateElements.forEach((el, index) => {
+                        setTimeout(() => {
+                            el.classList.add('animate-in');
+                        }, index * 100);
+                    });
+                }
+            });
+        }
+
+        // ナビゲーション更新
+        function updateNavigation() {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // スムーススクロール
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const offsetTop = section.offsetTop - 70; // ナビゲーション高さを考慮
+            
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+
+            // モバイルメニューを閉じる
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.remove('mobile-open');
+        }
+
+        // モバイルメニュートグル
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('mobile-open');
+        }
+
+        // イベントリスナー
+        window.addEventListener('scroll', () => {
+            updateProgressBar();
+            updateVisibleSections();
+            updateNavigation();
+        });
+
+        window.addEventListener('load', () => {
+            updateVisibleSections();
+            updateNavigation();
+        });
+
+        // 初期化
+        document.addEventListener('DOMContentLoaded', () => {
+            updateVisibleSections();
+            updateNavigation();
+            
+            // アニメーション遅延実行
+            setTimeout(() => {
+                const homeCards = document.querySelectorAll('#home .overview-card');
+                homeCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('animate-in');
+                    }, index * 200);
+                });
+            }, 500);
+        });
+
+        // リサイズ対応
+        window.addEventListener('resize', () => {
+            updateVisibleSections();
+        });
+
+        // キーボードナビゲーション（プレゼン用）
+        document.addEventListener('keydown', (e) => {
+            const sections = ['home', 'finland-info', 'education', 'nature', 'culture', 'lifestyle'];
+            const currentIndex = sections.findIndex(id => 
+                document.getElementById(id).classList.contains('visible') &&
+                document.getElementById(id).getBoundingClientRect().top <= 100
+            );
+            
+            if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+                e.preventDefault();
+                if (currentIndex < sections.length - 1) {
+                    scrollToSection(sections[currentIndex + 1]);
+                }
+            } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+                e.preventDefault();
+                if (currentIndex > 0) {
+                    scrollToSection(sections[currentIndex - 1]);
+                }
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                scrollToSection('home');
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                scrollToSection('lifestyle');
+            }
+        });
+    </script>
+</body>
+</html>
